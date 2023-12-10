@@ -12,8 +12,18 @@ function createWindow () {
     }
   })
 
+  mainWindow.webContents.session.setProxy({proxyRules:"socks5://114.215.193.156:1080"}, function () {
+    // mainWindow.loadURL('https://whatismyipaddress.com/');
+    mainWindow.loadURL("https://chat.openai.com/")
+  });
+// mainWindowloadURL(url.format({
+//     pathname: path.join(__dirname, 'index.html'),
+//     protocol: 'file:',
+//     slashes: true
+// }))
+
   // and load the index.html of the app.
-  mainWindow.loadFile('index.html')
+  // mainWindow.loadFile('index.html')
 
   // Open the DevTools.
   // mainWindow.webContents.openDevTools()
