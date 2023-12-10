@@ -2,7 +2,7 @@
 const { app, BrowserWindow } = require('electron')
 const path = require('node:path')
 
-function createWindow () {
+function createWindow() {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
     width: 800,
@@ -12,15 +12,15 @@ function createWindow () {
     }
   })
 
-  mainWindow.webContents.session.setProxy({proxyRules:"socks5://114.215.193.156:1080"}, function () {
+  mainWindow.webContents.session.setProxy({ proxyRules: "socks5://114.215.193.156:1080" }, function () {
     // mainWindow.loadURL('https://whatismyipaddress.com/');
     mainWindow.loadURL("https://chat.openai.com/")
   });
-// mainWindowloadURL(url.format({
-//     pathname: path.join(__dirname, 'index.html'),
-//     protocol: 'file:',
-//     slashes: true
-// }))
+  // mainWindowloadURL(url.format({
+  //     pathname: path.join(__dirname, 'index.html'),
+  //     protocol: 'file:',
+  //     slashes: true
+  // }))
 
   // and load the index.html of the app.
   // mainWindow.loadFile('index.html')
