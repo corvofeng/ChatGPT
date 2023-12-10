@@ -16,12 +16,6 @@
     "tutorial",
     "demo"
   ],
-  "build": {
-    "appId": "fun.corvo.chatgpt",
-    "mac": {
-      "category": "your.app.category.type"
-    }
-  },
   "author": "corvofeng",
   "license": "CC0-1.0",
   "devDependencies": {
