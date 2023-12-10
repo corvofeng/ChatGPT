@@ -1,5 +1,5 @@
 // Modules to control application life and create native browser window
-const { app, BrowserWindow } = require('electron')
+const { app, BrowserWindow, Menu } = require('electron')
 const path = require('node:path')
 
 function createWindow() {
@@ -12,10 +12,19 @@ function createWindow() {
     }
   })
 
-  mainWindow.webContents.session.setProxy({ proxyRules: "socks5://114.215.193.156:1080" }, function () {
-    // mainWindow.loadURL('https://whatismyipaddress.com/');
-    mainWindow.loadURL("https://chat.openai.com/")
-  });
+  Menu.setApplicationMenu(null)
+
+  mainWindow.webContents.session
+  .setProxy({
+    proxyRules:"socks5://54.248.22.243:1080",
+  }).then(() => {
+      mainWindow.loadURL('https://chat.openai.com/');
+   }).catch((err) => console.error(err));
+
+  // mainWindow.webContents.session.setProxy({ proxyRules: "socks5://54.248.22.243:1080" }, function () {
+  //   // mainWindow.loadURL('https://whatismyipaddress.com/');
+  //   mainWindow.loadURL("https://chat.openai.com/")
+  // });
   // mainWindowloadURL(url.format({
   //     pathname: path.join(__dirname, 'index.html'),
   //     protocol: 'file:',
