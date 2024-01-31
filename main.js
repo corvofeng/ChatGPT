@@ -12,41 +12,39 @@ function createWindow() {
     }
   })
 
-  const {Menu} = require('electron');  // 引入 Menu 模块
+  // 菜单栏模板
+  const menuBar = [
+    {
+      label: '文件',
+      submenu: [
+        { label: '打开' },
+        { label: '保存' },
+        { label: '退出' }
+      ]
+    },
+    {
+      label: '帮助',
+      submenu: [
+        { label: '访问官网' },
+        { label: '关于' }
+      ]
+    }
+  ];
 
-// 菜单栏模板
-const menuBar = [
-  {
-    label: '文件',
-    submenu: [
-      {label: '打开'},
-      {label: '保存'},
-      {label: '退出'}
-    ]
-  },
-  {
-    label: '帮助',
-    submenu: [
-      {label: '访问官网'},
-      {label: '关于'}
-    ]
-  }
-];
-
-// 构建菜单项
-const menu = Menu.buildFromTemplate(menuBar);
-// 设置一个顶部菜单栏
-Menu.setApplicationMenu(menu);
+  // 构建菜单项
+  const menu = Menu.buildFromTemplate(menuBar);
+  // 设置一个顶部菜单栏
+  Menu.setApplicationMenu(menu);
 
   // Menu.setApplicationMenu(null)
 
   mainWindow.webContents.session
-  .setProxy({
-    // proxyRules:"socks5://54.248.22.243:1080",
-    // proxyRules:"http://127.0.0.1:1080",
-  }).then(() => {
+    .setProxy({
+      // proxyRules:"socks5://54.248.22.243:1080",
+      // proxyRules:"http://127.0.0.1:1080",
+    }).then(() => {
       mainWindow.loadURL('https://chat.openai.com/');
-   }).catch((err) => console.error(err));
+    }).catch((err) => console.error(err));
 
   // mainWindow.webContents.session.setProxy({ proxyRules: "socks5://54.248.22.243:1080" }, function () {
   //   // mainWindow.loadURL('https://whatismyipaddress.com/');
