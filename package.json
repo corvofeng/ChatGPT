@@ -19,7 +19,7 @@
   "author": "corvofeng",
   "license": "CC0-1.0",
   "devDependencies": {
-    "electron": "^28.2.0",
+    "electron": "^28.2.3",
     "electron-builder": "^23.0.3"
   }
 }
