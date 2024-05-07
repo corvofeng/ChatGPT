@@ -42,7 +42,7 @@ function createWindow() {
     .setProxy({
       // proxyRules:"socks5://54.248.22.243:1080",
       // proxyRules:"socks5://192.168.191.201:8080",
-      proxyRules:"http://192.168.191.201:8080",
+      proxyRules:"http://159.223.192.65:8080",
       // proxyRules:"http://127.0.0.1:1080",
     }).then(() => {
       mainWindow.loadURL('https://chat.openai.com/');
